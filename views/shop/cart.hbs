@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        img{
+            width:250px;
+            height:150px;
+        }
+        .cart-list{
+            list-style: none;
+        }
+        li{
+            display: flex;
+            width:500px;
+            column-gap: 30px;
+            margin-top: 40px;
+            align-items: center;
+            font-size:20px;
+        }
+        button{
+            padding-left: 5px;
+            padding-right: 5px;
+            font-size:20px;
+        }
+        .quantity{
+            display: flex;
+            column-gap: 5px;
+            align-items: baseline;
+        }
+        p{
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<body>
+    {{> nav}}
+    <h1>Cart Page</h1>
+
+     <h1>Welcome to cart page</h1>
+    Total Price: <span class="totalPrice">{{totalPrice}}</span>
+    <ul class="cart-list">
+        {{#each cart as |c|}}
+        <li class="cart-list-item">
+            <div>
+                <img src={{c.id.imageUrl}} alt="" width="200px" height="100px">
+            </div>
+            <div>
+                <p>Name: {{c.id.name}}</p>
+                <p>Price: {{c.id.price}}</p>
+
+                <div>
+                    Quantity:
+                    <a href="/shop/cart/increase/{{c.id._id}}">
+                        <button class="increaseQuantity">
+                            +
+                        </button>
+                    </a>{{c.quantity}}
+                    <a href="/shop/cart/decrease/{{c.id._id}}">
+                        <button class="decreaseQuantity">
+                            -
+                        </button>
+                    </a>
+                    <div id={{c.id._id}}></div>
+                </div>
+            </div>
+
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/shop/cart/buy"><button class="buyNowBtn">Buy now</button></a>
+    <script src="/js/cart.js"></script>
+    <script src="/js/utils/axios.min.js"></script>
+</body>
+</html>

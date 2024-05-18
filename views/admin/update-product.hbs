@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+    <style>
+        img{
+            width:400px;
+            height:300px;
+        }
+        .product-item{
+            width:420px;
+            margin: 20px auto;
+            border:1px solid black;
+            padding:10px;
+            border-radius: 5px;
+            box-shadow: 10px 10px #ccc;
+        }
+        form{
+            width:50%;
+            margin: auto;
+        }
+        form input{
+            width:100%;
+            margin:10px;
+            padding:5px;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    {{> nav}}
+
+
+    <h1>Welcome to update Product Page</h1>
+    <div class="product-item">
+        <img src={{prod.imageUrl}} alt="">
+        <h4>Product Name: {{prod.name}}</h4>
+        <h4>Product Price: {{prod.price}}</h4>
+    </div>
+
+
+    <form action="/admin/products/update" method="POST">
+        <input type="text" name="name" placeholder="Enter Updated Product Name" value={{prod.name}}> <br>
+        <input type="text" name="price" placeholder="Enter Updated Product Price" value={{prod.price}}> <br>
+        <input type="text" name="description" placeholder="Enter Updated Product Description" value={{prod.description}}> <br>
+        <input type="text" name="imageUrl" placeholder="Enter Updated Product Image Url" value={{prod.imageUrl}}> <br>
+        <input type="text" name="seller" placeholder="Enter Updated Seller Name" value={{prod.seller}}> <br>
+        <input type="hidden" name="id" value={{prod._id}}>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

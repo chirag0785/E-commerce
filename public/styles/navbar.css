@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    border:1px solid black;
+    padding:10px;
+    background-color: rgb(225, 218, 218);
+}
+nav a:link{
+    text-decoration: none;
+    color:black;
+}
+nav a:visited{
+    text-decoration: none;
+    color:black;
+}
+nav a:hover{
+    text-decoration: underline;
+    color:blue;
+}

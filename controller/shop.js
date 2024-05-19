@@ -29,7 +29,8 @@ module.exports.getProductById=async (req,res,next)=>{
     try{   
         let prod=await Products.findById(id);
         res.render('shop/product-details',{
-            prod
+            prod,
+            id
         })
 
     }catch(err){
@@ -199,6 +200,7 @@ module.exports.postProductReview=async (req,res,next)=>{
     let {id,rev}=req.body;
     let prod=await Products.findOne({_id:id});
     prod.reviews.push(rev);
+    console.log("Yahan hu");
     await prod.save();
     res.redirect('/shop');
    }catch(err){
@@ -206,14 +208,15 @@ module.exports.postProductReview=async (req,res,next)=>{
    }
 }
 
-/*module.exports.getBuyProduct=async (req,res,next)=>{
-   let {id}=req.params;
+module.exports.getOrderByProductId=async (req,res,next)=>{
+   let {productId}=req.params;
+   console.log(productId);
      try{
-        let prod=await Products.findOne({_id:id});
+        let prod=await Products.findById(productId);
          req.user.orders.push({
              products:[
                  {
-                     product:{id:prod._id},
+                     product:{id:productId},
                      quantity:1,
                      totalPrice:prod.price
                  }
@@ -226,4 +229,3 @@ module.exports.postProductReview=async (req,res,next)=>{
          next(err);
      }
  }
- */

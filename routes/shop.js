@@ -13,9 +13,12 @@ router.get('/cart/increase/:id',shopController.getIncrease);
 router.get('/cart/decrease/:id',shopController.getDecrease);
 
 router.get('/cart/buy',shopController.getProductsBuy);
-//router.get('/order/:id',shopController.getBuyProduct);
+router.get('/buy/:productId', shopController.getOrderByProductId);
 router.get('/order/history',shopController.getOrderHistory);
-router.post('/order/review',shopController.postProductReview);
 
 router.get('/order/review/:id',shopController.getReviewPage);
+
+
+
+router.post('/order/reviews',shopController.postProductReview);
 module.exports=router;

@@ -1,0 +1,14 @@
+<div class="product-list">
+    {{#each prod as | category |}}
+        <h3 class="category-name">{{@key}}</h3>
+        <div class="category">
+            {{#each category as |p|}}
+                <div class="product-item">
+                <img src={{p.imageUrl}} alt="">
+                <h4>Product Name: {{p.name}}</h4>
+                <h4>Product Price: {{p.price}}</h4>
+        </div>
+            {{/each}}
+        </div>
+    {{/each}}
+    </div>

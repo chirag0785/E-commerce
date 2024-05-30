@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <h1>Welcome to signup page</h1>
+
+    <form action="/signup" method="POST">
+        <input type="text" name="username" placeholder="Enter username"> <br>
+        <input type="password" name="password" placeholder="Enter password"> <br>
+        <button type="submit">Signup</button> 
+    </form>
+
+
+    <h4>Already a User?</h4>
+    <a href="/login">Login</a>
+
+    <h4>Login Via google</h4>
+    <a href="/auth/google">Login</a>
+</body>
+</html>

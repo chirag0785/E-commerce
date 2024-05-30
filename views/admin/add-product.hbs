@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        form{
+            width:50%;
+            margin:auto;
+        }
+        form input{
+            width:100%;
+            padding:10px;
+            margin:10px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<body>
+    {{> nav}}
+    <h1>Add Product</h1>
+
+    <form action="/admin/products/add" method="POST">
+        <input type="text" name="name" placeholder="Enter Product Name"> <br>
+        <input type="text" name="price" placeholder="Enter Product Price"> <br>
+        <input type="text" name="description" placeholder="Enter Product Description"> <br>
+        <input type="text" name="imageUrl" placeholder="Enter Product Image Url"> <br>
+        <input type="text" name="seller" placeholder="Enter Seller Name"> <br>
+        <input type="text" name="category" placeholder="Enter Category"> <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

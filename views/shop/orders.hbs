@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <style>
+        img{
+            width:220px;
+            height:150px;
+        }
+        .order{
+            border:1px solid rgb(201, 194, 194);
+            padding:10px;
+            width:50%;
+            margin: 10px auto;
+        }
+        .prod-details{
+            width:50%;
+        }
+        .product{
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .review a button{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    {{> nav}}
+
+    <div class="orders">
+        {{#each orders as |o|}}
+            <div class="order">
+                <div class="order-date">Order Date: {{o.date}}</div>
+                {{#each o.products as |p|}}
+                    <div class="product">
+                        <div class="prod-img"><img src={{p.product.id.imageUrl}} alt=""></div>
+                        <div class="prod-details">
+                            <div>Product Name: {{p.product.id.name}}</div>
+                            <div>Product Seller: {{p.product.id.seller}}</div>
+                            <div>Product Quantity: {{p.quantity}}</div>
+                            <div>TotalPrice: {{p.totalPrice}}</div>
+                        </div>
+                        <div class="review">
+                            <a href="/shop/order/review/{{p.product.id.id}}">
+                                <button>Add a Review</button>
+                            </a>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</body>
+</html>

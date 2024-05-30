@@ -1,0 +1,20 @@
+[
+    {
+        "name":"Pratik",
+        "email":"pratik@gmail.com",
+        "passowrd":"123456",
+        "cart":[]
+    },
+    {
+        "name":"Dhairya",
+        "email":"dhairya@gmail.com",
+        "passowrd":"654321",
+        "cart":[]
+    },
+    {
+        "name":"Raman",
+        "email":"raman@gmail.com",
+        "passowrd":"abc@gmail.com",
+        "cart":[]
+    }
+]
